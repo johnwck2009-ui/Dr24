@@ -1,3 +1,4 @@
+import asyncio
 import logging
 import os
 import random
@@ -442,6 +443,10 @@ def main():
     application.add_handler(CallbackQueryHandler(next_callback, pattern=r"^next:"))
     application.add_handler(CallbackQueryHandler(menu_callback, pattern=r"^(home|play|quick|leaderboard|weekly_lb|profile)$"))
     logger.info("%s is starting...", BOT_NAME)
+    # Python 3.14 no longer creates a default event loop automatically.
+    # Create and register one before python-telegram-bot starts polling.
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
     application.run_polling(allowed_updates=Update.ALL_TYPES)
 
 if __name__ == "__main__":
