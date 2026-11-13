@@ -186,7 +186,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     context.user_data.pop("session", None)
     name = user.first_name or "there"
     message = (
-        "សូមស្វាគមន៍មកវេបសាយធំបំផុត ងាយស្រួលលេង📲 និងគួរឱ្យទុកចិត្តបំផុតនៅកម្ពុជា🔥"
+        "សូមស្វាគមន៍មកវេបសាយធំបំផុត ងាយស្រួលលេង📲 និងគួរឱ្យទុកចិត្តបំផុតនៅកម្ពុជា🔥\n"
+        "https://t.me/Sdrservice24h"
     )
     welcome_keyboard = InlineKeyboardMarkup([
         [InlineKeyboardButton("សេវាកម្ម ២៤ម៉ោង", url="https://t.me/Sdrservice24h")]
