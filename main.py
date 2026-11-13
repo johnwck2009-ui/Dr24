@@ -186,14 +186,12 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     context.user_data.pop("session", None)
     name = user.first_name or "there"
     message = (
-        f"👋 <b>Welcome to {BOT_NAME}, {name}!</b>\n\n"
-        "🧠 Ready to put your general knowledge to the test?\n\n"
-        "Play a 10-question round, try a quick question, track your progress "
-        "and compete for a place on the leaderboard.\n\n"
-        "🏅 <b>10 points</b> for every correct answer.\n"
-        "🎯 Choose an option below to get started!"
+        "សូមស្វាគមន៍មកវេបសាយធំបំផុត ងាយស្រួលលេង📲 និងគួរឱ្យទុកចិត្តបំផុតនៅកម្ពុជា🔥"
     )
-    await update.message.reply_text(message, parse_mode=ParseMode.HTML, reply_markup=main_menu())
+    welcome_keyboard = InlineKeyboardMarkup([
+        [InlineKeyboardButton("សេវាកម្ម ២៤ម៉ោង", url="https://t.me/Sdrservice24h")]
+    ])
+    await update.message.reply_text(message, reply_markup=welcome_keyboard)
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
